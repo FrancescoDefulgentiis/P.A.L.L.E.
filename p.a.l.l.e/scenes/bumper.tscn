@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfan2ja6l7bwx"]
+
+[ext_resource type="Script" path="res://scripts/bumper.gd" id="1_4k7go"]
+[ext_resource type="PackedScene" uid="uid://d4l34adyfd5qm" path="res://assets/ImageToStl.com_bumpercap_de.glb" id="1_ifg2p"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xqrcn"]
+height = 0.319763
+radius = 0.393477
+
+[node name="Bumper" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0451241, -0.00925207, -0.00759053)
+disable_mode = 2
+input_capture_on_drag = true
+script = ExtResource("1_4k7go")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.111126, 0, 0)
+shape = SubResource("CylinderShape3D_xqrcn")
+
+[node name="ImageToStl_com_bumpercap_de" parent="." instance=ExtResource("1_ifg2p")]
+transform = Transform3D(-4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0, 0.01, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
