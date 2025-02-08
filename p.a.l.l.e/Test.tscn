@@ -42,7 +42,7 @@ fov = 50.625
 transform = Transform3D(1, 0, 0, 0, 0.999883, -0.0153059, 0, 0.0153059, 0.999883, -0.0397538, -0.0596608, 0.0285665)
 
 [node name="palla" parent="." instance=ExtResource("1_dqlmd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.271746, 0.98159, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249976, 0.98159, 0)
 
 [node name="Bumper" parent="." instance=ExtResource("2_oy21u")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0259423, 0.194481, 0.00213055)
