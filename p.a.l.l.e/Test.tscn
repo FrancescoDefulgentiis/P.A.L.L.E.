@@ -1,18 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3xjpn6r30ak8"]
+[gd_scene load_steps=6 format=3 uid="uid://c3xjpn6r30ak8"]
 
-[ext_resource type="PackedScene" uid="uid://ctck4i7ottcw6" path="res://scenes/palla.tscn" id="1_dqlmd"]
+[ext_resource type="ArrayMesh" uid="uid://bdycslij4g5vk" path="res://assets/flipper R.obj" id="2_gqqjh"]
 [ext_resource type="PackedScene" uid="uid://dfan2ja6l7bwx" path="res://scenes/bumper.tscn" id="2_oy21u"]
+[ext_resource type="ArrayMesh" uid="uid://cklro83saqny" path="res://assets/PALLA.obj" id="3_tbgpn"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_057rj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2tjje"]
 size = Vector3(6.1225, 1, 1)
 
-[node name="Node3D" type="Node3D"]
+[node name="testScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.298881, 0)
 
 [node name="wall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.960482, -0.0151186)
+visible = false
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="wall"]
 
@@ -41,8 +43,13 @@ fov = 50.625
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999883, -0.0153059, 0, 0.0153059, 0.999883, -0.0397538, -0.0596608, 0.0285665)
 
-[node name="palla" parent="." instance=ExtResource("1_dqlmd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249976, 0.98159, 0)
-
 [node name="Bumper" parent="." instance=ExtResource("2_oy21u")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0259423, 0.194481, 0.00213055)
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 0, 11.9009, 0)
+
+[node name="FlipperR" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+mesh = ExtResource("2_gqqjh")
+
+[node name="Palla" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54613, 22.0294, 0.124706)
+mesh = ExtResource("3_tbgpn")

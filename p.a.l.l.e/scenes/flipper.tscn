@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp8sd0qmv64rm"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdycslij4g5vk" path="res://assets/flipper R.obj" id="1_pa5jo"]
+
+[node name="Flipper" type="Node3D"]
+
+[node name="FlipperR" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 2.5)
+mesh = ExtResource("1_pa5jo")
