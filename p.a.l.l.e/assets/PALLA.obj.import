@@ -3,15 +3,15 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-uid="uid://d22eek0cwpeh6"
-path="res://.godot/imported/Palla.obj-a0f280849a638ff915334629d8d1bd31.mesh"
+uid="uid://b5vif8gi2jga0"
+path="res://.godot/imported/PALLA.obj-e1ceeb0de29cbad7839986797db3faf7.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Palla.obj-a0f280849a638ff915334629d8d1bd31.mesh"]
+files=["res://.godot/imported/PALLA.obj-e1ceeb0de29cbad7839986797db3faf7.mesh"]
 
-source_file="res://assets/Palla.obj"
-dest_files=["res://.godot/imported/Palla.obj-a0f280849a638ff915334629d8d1bd31.mesh", "res://.godot/imported/Palla.obj-a0f280849a638ff915334629d8d1bd31.mesh"]
+source_file="res://assets/PALLA.obj"
+dest_files=["res://.godot/imported/PALLA.obj-e1ceeb0de29cbad7839986797db3faf7.mesh", "res://.godot/imported/PALLA.obj-e1ceeb0de29cbad7839986797db3faf7.mesh"]
 
 [params]
 

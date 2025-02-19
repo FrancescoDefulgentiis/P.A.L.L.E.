@@ -1,3 +1,71 @@
-[gd_scene format=3 uid="uid://sf4bs37j43oa"]
+[gd_scene load_steps=8 format=3 uid="uid://d0trbv5264bgl"]
+
+[ext_resource type="PackedScene" uid="uid://cifjotnspunsh" path="res://scenes/BasePlate.tscn" id="1_g3qkc"]
+[ext_resource type="PackedScene" uid="uid://iek58aotehdv" path="res://scenes/FlipperLeft.tscn" id="2_eklj5"]
+[ext_resource type="PackedScene" uid="uid://by54rupui3ujl" path="res://scenes/Palla.tscn" id="3_2ue3j"]
+[ext_resource type="Script" path="res://scripts/flipperRightJoin.gd" id="3_pvsm7"]
+[ext_resource type="PackedScene" uid="uid://cvnw8x6tbbkxm" path="res://scenes/FlipperRight.tscn" id="4_2ec2h"]
+[ext_resource type="Script" path="res://scripts/palla.gd" id="4_k2bgq"]
+[ext_resource type="Script" path="res://scripts/flipperLeftJoint.gd" id="4_ofnp7"]
 
 [node name="Main" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.922639, 0.0537273, 0.381904, 0, -0.990249, 0.139311, 0.385664, -0.128534, -0.913642, -4.62664, 8.05761, 7.12782)
+light_energy = 1.914
+shadow_enabled = true
+
+[node name="LowerCamera" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.63729, 3.11026)
+
+[node name="Camera3D" type="Camera3D" parent="LowerCamera"]
+transform = Transform3D(1, 0, 0, 0, 0.315219, 0.949019, 0, -0.949019, 0.315219, 0, -0.207, 4.33)
+current = true
+
+[node name="UpperCamera" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 7.88422, 3.47978)
+
+[node name="Camera3D" type="Camera3D" parent="UpperCamera"]
+transform = Transform3D(1, 0, 0, 0, 0.676631, 0.736321, 0, -0.736321, 0.676631, 0, 0.477512, 2.38543)
+
+[node name="BasePlate" parent="." instance=ExtResource("1_g3qkc")]
+
+[node name="FlipperRight" parent="." instance=ExtResource("4_2ec2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74054, 0.249999, 6.35424)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="FlipperRight"]
+transform = Transform3D(-0.212894, 0.977075, 4.27093e-08, 0, -4.37114e-08, 1, 0.977075, 0.212894, 9.30589e-09, 0, 0.509486, 0)
+node_a = NodePath("../../BasePlate")
+node_b = NodePath("..")
+angular_limit/enable = true
+angular_limit/upper = 0.436332
+angular_limit/lower = -0.174533
+angular_limit/softness = 16.0
+motor/target_velocity = -0.0331613
+script = ExtResource("3_pvsm7")
+
+[node name="FlipperLeft" parent="." instance=ExtResource("2_eklj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53935, 0.25, 6.42638)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="FlipperLeft"]
+transform = Transform3D(-0.212894, 0.977075, 4.27093e-08, 0, -4.37114e-08, 1, 0.977075, 0.212894, 9.30589e-09, 0, 0.509486, 0)
+node_a = NodePath("../../BasePlate")
+node_b = NodePath("..")
+angular_limit/enable = true
+angular_limit/upper = 0.174533
+angular_limit/lower = -0.436332
+script = ExtResource("4_ofnp7")
+
+[node name="Palla" parent="." instance=ExtResource("3_2ue3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13927, 0.63428, 3.454)
+script = ExtResource("4_k2bgq")

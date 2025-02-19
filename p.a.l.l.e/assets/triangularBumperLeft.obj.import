@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dy284xfp3bqyc"
+path="res://.godot/imported/triangularBumperLeft.obj-2c1905d2c3b4dbf37b4490bdc049bf7d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/triangularBumperLeft.obj-2c1905d2c3b4dbf37b4490bdc049bf7d.mesh"]
+
+source_file="res://assets/triangularBumperLeft.obj"
+dest_files=["res://.godot/imported/triangularBumperLeft.obj-2c1905d2c3b4dbf37b4490bdc049bf7d.mesh", "res://.godot/imported/triangularBumperLeft.obj-2c1905d2c3b4dbf37b4490bdc049bf7d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
