@@ -1,19 +1,25 @@
-extends HingeJoint3D
+extends RigidBody3D
 
-const LIMIT_LOWER = -25
-const LIMIT_UPPER = 10
+var target_angular_velocity = 0.0  # Target speed of rotation, starts at 0
+var motor_force = 25.0             # Torque strength, acts like motor power
+var max_speed = 10.0               # Maximum rotational speed
 
-func _ready():
-	set_flag(FLAG_USE_LIMIT, true)
-	set_param(PARAM_LIMIT_LOWER, deg_to_rad(LIMIT_LOWER))
-	set_param(PARAM_LIMIT_UPPER, deg_to_rad(LIMIT_UPPER))
-	
-	set_flag(FLAG_ENABLE_MOTOR, true)
-	set_param(PARAM_MOTOR_MAX_IMPULSE, 5.0)
-	set_param(PARAM_MOTOR_TARGET_VELOCITY, 5.0)
+var min_angle = -20    # Minimum reachable angle
+var max_angle = 10     # Maximum reachable angle
 
 func _physics_process(_delta):
+	var current_angle = rotation_degrees.y
+
 	if Input.is_action_pressed("R2"):
-		set_param(PARAM_MOTOR_TARGET_VELOCITY, 5.0)	# Go Up
+		target_angular_velocity = -max_speed  # Pressing rotates in the negative direction
 	else:
-		set_param(PARAM_MOTOR_TARGET_VELOCITY, -5.0)# Goes down
+		target_angular_velocity = max_speed   # Releasing rotates back to rest in the positive direction
+
+	# Prevent the flipper from exceeding its limits:
+	if current_angle <= min_angle and target_angular_velocity < 0:
+		target_angular_velocity = 0
+	if current_angle >= max_angle and target_angular_velocity > 0:
+		target_angular_velocity = 0
+
+	var torque = (target_angular_velocity - angular_velocity.y) * motor_force
+	apply_torque(Vector3(0, torque, 0))

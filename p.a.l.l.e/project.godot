@@ -38,7 +38,11 @@ L2={
 
 [layer_names]
 
-3d_physics/layer_1="world"
+3d_physics/layer_1="pinball"
+3d_physics/layer_2="ball"
+3d_physics/layer_3="flippers"
+3d_physics/layer_4="InvisibleStoppers"
+3d_physics/layer_5="InvisibleBallStopper"
 
 [rendering]
 

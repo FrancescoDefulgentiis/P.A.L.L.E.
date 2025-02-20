@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://cevitq673imjk"
-path="res://.godot/imported/basePlate.obj-2a8ccb4f562c03b20064f9232dc7a418.mesh"
+path="res://.godot/imported/BasePlate.obj-3977f7dfeb28b7cb82df110ec80e16d3.mesh"
 
 [deps]
 
-files=["res://.godot/imported/basePlate.obj-2a8ccb4f562c03b20064f9232dc7a418.mesh"]
+files=["res://.godot/imported/BasePlate.obj-3977f7dfeb28b7cb82df110ec80e16d3.mesh"]
 
-source_file="res://assets/basePlate.obj"
-dest_files=["res://.godot/imported/basePlate.obj-2a8ccb4f562c03b20064f9232dc7a418.mesh", "res://.godot/imported/basePlate.obj-2a8ccb4f562c03b20064f9232dc7a418.mesh"]
+source_file="res://assets/BasePlate.obj"
+dest_files=["res://.godot/imported/BasePlate.obj-3977f7dfeb28b7cb82df110ec80e16d3.mesh", "res://.godot/imported/BasePlate.obj-3977f7dfeb28b7cb82df110ec80e16d3.mesh"]
 
 [params]
 

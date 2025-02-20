@@ -16,25 +16,24 @@ light_energy = 1.914
 shadow_enabled = true
 
 [node name="LowerCamera" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.63729, 5.20627)
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.63729, 3.11026)
 
 [node name="Camera3D" type="Camera3D" parent="LowerCamera"]
 transform = Transform3D(1, 0, 0, 0, 0.315219, 0.949019, 0, -0.949019, 0.315219, 0, -0.207, 4.33)
 current = true
 
 [node name="UpperCamera" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 7.88422, 5.57579)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 7.88422, 3.47978)
 
 [node name="Camera3D" type="Camera3D" parent="UpperCamera"]
 transform = Transform3D(1, 0, 0, 0, 0.676631, 0.736321, 0, -0.736321, 0.676631, 0, 0.477512, 2.38543)
 
 [node name="BasePlate" parent="." instance=ExtResource("1_g3qkc")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="FlipperRight" parent="." instance=ExtResource("4_2ec2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 0.25, 8.45001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74054, 0.249999, 6.35424)
 collision_layer = 4
-collision_mask = 10
+collision_mask = 2
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
@@ -44,7 +43,7 @@ center_of_mass_mode = 1
 script = ExtResource("3_pvsm7")
 
 [node name="FlipperLeft" parent="." instance=ExtResource("2_eklj5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 0.25, 8.45001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.741, 0.25, 6.354)
 collision_layer = 4
 collision_mask = 2
 axis_lock_linear_x = true
@@ -56,12 +55,7 @@ center_of_mass_mode = 1
 script = ExtResource("4_ofnp7")
 
 [node name="Palla" parent="." instance=ExtResource("3_2ue3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5275, 0.532994, 3.454)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353728, 0.63428, 3.454)
 collision_layer = 2
-collision_mask = 23
-mass = 0.007
+collision_mask = 7
 script = ExtResource("4_k2bgq")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.804396, 0.594093, 0, -0.594093, 0.804396, 0, 4.15601, 10.8082)
-current = true
