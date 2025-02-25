@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cifjotnspunsh"]
+
+[ext_resource type="ArrayMesh" uid="uid://cevitq673imjk" path="res://assets/BasePlate.obj" id="1_l5t71"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kimvq"]
+data = PackedVector3Array(0, 0, 0.25, -10, 0, 0.25, -10, 15, 0.25, 0, 0, 0.25, -10, 15, 0.25, 0, 15, 0.25, 0, 15, 0.25, -10, 15, 0.25, -10, 15, 0, 0, 15, 0.25, -10, 15, 0, 0, 15, 0, 0, 0, 0.25, 0, 15, 0.25, 0, 15, 0, 0, 0, 0.25, 0, 15, 0, 0, 0, 0, -10, 0, 0.25, 0, 0, 0.25, 0, 0, 0, -10, 0, 0.25, 0, 0, 0, -10, 0, 0, -10, 15, 0.25, -10, 0, 0.25, -10, 0, 0, -10, 15, 0.25, -10, 0, 0, -10, 15, 0, 0, 15, 0, -10, 15, 0, -10, 0, 0, 0, 15, 0, -10, 0, 0, 0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yauq2"]
+size = Vector3(1, 1.89804, 17.4135)
+
+[node name="BasePlate" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5, 0, 7.5)
+visible = false
+shape = SubResource("ConcavePolygonShape3D_kimvq")
+
+[node name="BasePlate" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5, 0, 7.5)
+mesh = ExtResource("1_l5t71")
+
+[node name="MuroDestra" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51406, 0.44902, -0.875603)
+visible = false
+shape = SubResource("BoxShape3D_yauq2")
+
+[node name="MuroSinistra" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.514, 0.449, -0.876)
+visible = false
+shape = SubResource("BoxShape3D_yauq2")
+
+[node name="MuroSopra" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.354583, 0.44902, -7.89722)
+visible = false
+shape = SubResource("BoxShape3D_yauq2")

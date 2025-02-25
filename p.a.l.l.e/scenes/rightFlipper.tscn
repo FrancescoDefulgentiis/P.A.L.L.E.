@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuyei12xf82fu"]
+
+[ext_resource type="Texture2D" uid="uid://0wwj1hgy2476" path="res://Sprites/rightFlipper.png" id="1_a8m5n"]
+
+[node name="Node2D" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-9.5, 5.5)
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(15, 8, 14.5, 4.2, -8, -10, -15, -10, -15, 1, 12, 11)
+
+[node name="RightFlipper-export" type="Sprite2D" parent="."]
+position = Vector2(-9.5, 5.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_a8m5n")
