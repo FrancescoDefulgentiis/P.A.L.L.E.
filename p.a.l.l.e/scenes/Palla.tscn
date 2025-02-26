@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgrr74p2upowe"]
+[gd_scene load_steps=3 format=3 uid="uid://bb8uawx6mbo7i"]
 
 [ext_resource type="Texture2D" uid="uid://cbjwnphylh06" path="res://Sprites/palla..png" id="1_m4tf4"]
 
@@ -10,7 +10,9 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="Palla" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_m4tf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_2l6a1")

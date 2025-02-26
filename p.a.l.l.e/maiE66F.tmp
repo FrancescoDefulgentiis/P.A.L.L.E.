@@ -12,8 +12,6 @@
 
 [node name="basePlate" parent="." instance=ExtResource("7_ad3jv")]
 position = Vector2(320, 162.5)
-collision_layer = 0
-collision_mask = 0
 
 [node name="LeftFlipper" parent="." instance=ExtResource("2_vad7h")]
 top_level = true
@@ -25,8 +23,8 @@ script = ExtResource("3_3joar")
 node_a = NodePath("..")
 node_b = NodePath("../../basePlate")
 angular_limit_enabled = true
-angular_limit_lower = -0.523599
-angular_limit_upper = 0.523599
+angular_limit_lower = -0.174533
+angular_limit_upper = 0.174533
 
 [node name="RightFlipper" parent="." instance=ExtResource("3_mo2me")]
 top_level = true
@@ -34,11 +32,8 @@ position = Vector2(351.5, 327.5)
 script = ExtResource("5_s5gac")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="RightFlipper"]
-node_a = NodePath("../../basePlate")
-node_b = NodePath("..")
-angular_limit_enabled = true
-angular_limit_lower = -0.523599
-angular_limit_upper = 0.523599
+node_a = NodePath("..")
+node_b = NodePath("../../basePlate")
 
 [node name="Walls" parent="." instance=ExtResource("6_rshb6")]
 position = Vector2(0, 5)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://jp6t38jns7xt"]
+[gd_scene load_steps=2 format=3 uid="uid://be5qy3gf3i60d"]
 
 [ext_resource type="Texture2D" uid="uid://0i6ol8dssmh3" path="res://Sprites/basePlate.png" id="1_6bsi7"]
 
-[node name="Node2D" type="RigidBody2D"]
+[node name="Node2D" type="StaticBody2D"]
 
 [node name="BasePlate" type="Sprite2D" parent="."]
 texture = ExtResource("1_6bsi7")

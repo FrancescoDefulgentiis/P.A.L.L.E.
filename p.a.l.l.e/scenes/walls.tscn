@@ -7,6 +7,7 @@
 
 [node name="leftFlipperWall" type="RigidBody2D" parent="."]
 collision_mask = 2
+freeze = true
 
 [node name="LeftFlipperWall" type="Sprite2D" parent="leftFlipperWall"]
 position = Vector2(268.5, 295.5)
@@ -21,6 +22,7 @@ polygon = PackedVector2Array(-178, -326.5, -215, -350, -227.2, -350, -231, -347.
 
 [node name="rightFlipperWall" type="RigidBody2D" parent="."]
 collision_mask = 2
+freeze = true
 
 [node name="RightFlipperWall" type="Sprite2D" parent="rightFlipperWall"]
 position = Vector2(371.5, 295.5)
