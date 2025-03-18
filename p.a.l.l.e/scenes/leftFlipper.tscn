@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dssd3kyk7b6yd"]
+[gd_scene load_steps=3 format=3 uid="uid://dssd3kyk7b6yd"]
 
 [ext_resource type="Texture2D" uid="uid://dswjx6cxp7d42" path="res://Sprites/leftFlipper.png" id="1_sgomt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcm82"]
+radius = 6.38104
+height = 34.9398
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 4
@@ -12,7 +16,7 @@ position = Vector2(9.5, 5.5)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_sgomt")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(9.5, 5.5)
-polygon = PackedVector2Array(15, 8, 14.5, 4.2, -8, -10, -15, -10, -15, 1, 12, 11)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 7)
+rotation = -0.994838
+shape = SubResource("CapsuleShape2D_gcm82")
