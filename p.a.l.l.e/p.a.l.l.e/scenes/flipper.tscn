@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5y4p7xpi2vwx"]
+
+[ext_resource type="Script" uid="uid://cudjhrjovtloh" path="res://scripts/Flipper.gd" id="1_j537t"]
+[ext_resource type="Texture2D" uid="uid://dswjx6cxp7d42" path="res://Sprites/leftFlipper.png" id="1_otgx2"]
+
+[node name="Flipper" type="AnimatableBody2D"]
+collision_layer = 2
+script = ExtResource("1_j537t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(95, 55)
+texture = ExtResource("1_otgx2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-72, -106, -126, -105, -145, -86, -146, 4, -112, 25, 88, 105, 125, 106, 146, 85, 146, 45, 125, 25, -25, -75)

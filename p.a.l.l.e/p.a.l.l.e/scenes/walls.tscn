@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkk3te7t3s4c"]
+
+[ext_resource type="Texture2D" uid="uid://0i6ol8dssmh3" path="res://Sprites/basePlate.png" id="1_0lpna"]
+[ext_resource type="Texture2D" uid="uid://bhiouw5ct8hoo" path="res://Sprites/leftFlipperWall.png" id="2_exnah"]
+[ext_resource type="Texture2D" uid="uid://ctcny6c4ko3ta" path="res://Sprites/rightFlipperWall.png" id="3_exnah"]
+[ext_resource type="Texture2D" uid="uid://bvf0dr1ipt1lp" path="res://Sprites/pin.png" id="4_wcuyo"]
+[ext_resource type="Texture2D" uid="uid://dswjx6cxp7d42" path="res://Sprites/leftFlipper.png" id="5_8gyw1"]
+[ext_resource type="Texture2D" uid="uid://0wwj1hgy2476" path="res://Sprites/rightFlipper.png" id="6_cd8gh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcuyo"]
+size = Vector2(256, 396)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wcuyo"]
+radius = 2.0
+
+[node name="Wall" type="Node2D"]
+
+[node name="Baseplate" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="BasePlate" type="Sprite2D" parent="Baseplate"]
+texture = ExtResource("1_0lpna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Baseplate"]
+visible = false
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_wcuyo")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="LeftFlipperWall" type="Sprite2D" parent="LeftWall"]
+position = Vector2(-60, 128)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_exnah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftWall"]
+visible = false
+position = Vector2(-62, 128)
+scale = Vector2(0.1, 0.1)
+polygon = PackedVector2Array(-230, -350, -250, -330, -250, 60, -230, 90, 180, 350, 220, 350, 270, 250, -70, 50, -180, -50, -180, -330, -200, -350)
+
+[node name="RightFlipperWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="RightFlipperWall" type="Sprite2D" parent="RightFlipperWall"]
+position = Vector2(60, 128)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_exnah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightFlipperWall"]
+visible = false
+position = Vector2(62, 128)
+rotation = 3.14159
+scale = Vector2(0.1, -0.1)
+polygon = PackedVector2Array(-230, -350, -250, -330, -250, 60, -230, 90, 180, 350, 220, 350, 270, 250, -70, 50, -180, -50, -180, -330, -200, -350)
+
+[node name="Pin" type="StaticBody2D" parent="."]
+
+[node name="Pin" type="Sprite2D" parent="Pin"]
+position = Vector2(1.50463e-36, 166)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_wcuyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pin"]
+visible = false
+position = Vector2(0, 170)
+shape = SubResource("CircleShape2D_wcuyo")
+
+[node name="LeftFlipper" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-30.5, 160.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_8gyw1")
+
+[node name="RightFlipper" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(30.5, 160.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_cd8gh")
