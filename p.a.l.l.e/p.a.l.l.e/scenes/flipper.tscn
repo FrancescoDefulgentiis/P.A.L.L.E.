@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5y4p7xpi2vwx"]
+[gd_scene load_steps=6 format=3 uid="uid://b5y4p7xpi2vwx"]
 
-[ext_resource type="Script" uid="uid://cudjhrjovtloh" path="res://scripts/Flipper.gd" id="1_j537t"]
+[ext_resource type="Script" uid="uid://cudjhrjovtloh" path="res://scripts/FlipperLeft.gd" id="1_j537t"]
 [ext_resource type="Texture2D" uid="uid://dswjx6cxp7d42" path="res://Sprites/leftFlipper.png" id="1_otgx2"]
+
+[sub_resource type="Animation" id="Animation_j537t"]
+resource_name = "upFlipLeft"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 0.170756),
+"update": 0,
+"values": [0.0, -1.39626]
+}
+
+[sub_resource type="Animation" id="Animation_vewl4"]
+resource_name = "upFlipRight"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 0.170756),
+"update": 0,
+"values": [-3.14159, -1.74533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kstob"]
+_data = {
+&"upFlipLeft": SubResource("Animation_j537t"),
+&"upFlipRight": SubResource("Animation_vewl4")
+}
 
 [node name="Flipper" type="AnimatableBody2D"]
 collision_layer = 2
@@ -14,3 +52,8 @@ texture = ExtResource("1_otgx2")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PackedVector2Array(-72, -106, -126, -105, -145, -86, -146, 4, -112, 25, 88, 105, 125, 106, 146, 85, 146, 45, 125, 25, -25, -75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kstob")
+}
