@@ -1,12 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://7osi2chp26to"]
+[gd_scene load_steps=7 format=3 uid="uid://7osi2chp26to"]
 
 [ext_resource type="Script" uid="uid://dhtuy8ev1kesh" path="res://scripts/PinballTable.gd" id="1_6o3j1"]
 [ext_resource type="PackedScene" uid="uid://dkk3te7t3s4c" path="res://scenes/walls.tscn" id="2_vbfb2"]
-[ext_resource type="PackedScene" uid="uid://dcs8k6sstu833" path="res://scenes/p.a.l.l.a.tscn" id="3_bncum"]
 [ext_resource type="PackedScene" uid="uid://b5y4p7xpi2vwx" path="res://scenes/flipper.tscn" id="4_kgeu3"]
-[ext_resource type="Script" uid="uid://dkovfig0383ws" path="res://scripts/p.a.l.l.a.gd" id="4_wpntk"]
 [ext_resource type="Script" uid="uid://dvh7dfa2xl7s7" path="res://scripts/FlipperRight.gd" id="5_vbfb2"]
-[ext_resource type="PackedScene" uid="uid://do21sdv85wbe6" path="res://scenes/mob001.tscn" id="6_bncum"]
 [ext_resource type="Script" uid="uid://bgvgbihl4gh4u" path="res://Sprites/killzone.gd" id="8_s6vjb"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0manr"]
@@ -19,12 +16,6 @@ script = ExtResource("1_6o3j1")
 [node name="Wall" parent="." instance=ExtResource("2_vbfb2")]
 position = Vector2(318, 170)
 
-[node name="palla" parent="." groups=["ball"] instance=ExtResource("3_bncum")]
-position = Vector2(379, 14)
-collision_mask = 15
-mass = 1.0
-script = ExtResource("4_wpntk")
-
 [node name="FlipperLeft" parent="." instance=ExtResource("4_kgeu3")]
 position = Vector2(278, 325)
 scale = Vector2(0.1, 0.1)
@@ -34,18 +25,17 @@ position = Vector2(358, 325)
 scale = Vector2(-0.1, 0.1)
 script = ExtResource("5_vbfb2")
 
-[node name="Mob001" parent="." instance=ExtResource("6_bncum")]
-collision_layer = 8
-
-[node name="Killzone" type="Area2D" parent="." node_paths=PackedStringArray("respawn_point", "ball")]
+[node name="Killzone" type="Area2D" parent="." node_paths=PackedStringArray("respawn_point")]
 script = ExtResource("8_s6vjb")
-respawn_point = NodePath("../SpawnPoint")
-ball = NodePath("../palla")
+respawn_point = NodePath("../BallSpawnPoint")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("SegmentShape2D_0manr")
 
-[node name="SpawnPoint" type="Node2D" parent="."]
+[node name="BallSpawnPoint" type="Node2D" parent="."]
 position = Vector2(371, 51)
+
+[node name="Mob001SpawnPoint" type="Node2D" parent="."]
+position = Vector2(355, 265)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
