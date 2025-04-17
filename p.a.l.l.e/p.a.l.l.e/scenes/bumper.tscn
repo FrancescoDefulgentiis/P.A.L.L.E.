@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://0n8eti7pkdg2"]
+
+[ext_resource type="Script" uid="uid://cdxeo1dvvmjcm" path="res://scripts/bumper.gd" id="1_8a4bv"]
+[ext_resource type="Texture2D" uid="uid://d3lodfqbtnxgx" path="res://Sprites/InternalBumper.png" id="2_mde7a"]
+[ext_resource type="Texture2D" uid="uid://bft8ktjcxhdnx" path="res://Sprites/Bumper.png" id="3_l1mvp"]
+
+[sub_resource type="Animation" id="Animation_32g4f"]
+resource_name = "hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ao7re"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mktj"]
+_data = {
+&"RESET": SubResource("Animation_ao7re"),
+&"hit": SubResource("Animation_32g4f")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xxafh"]
+radius = 25.02
+
+[node name="Bumper" type="Node2D"]
+script = ExtResource("1_8a4bv")
+
+[node name="MovingPart" type="AnimatableBody2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPart"]
+libraries = {
+&"": SubResource("AnimationLibrary_7mktj")
+}
+
+[node name="InternalBumper" type="Sprite2D" parent="MovingPart"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_mde7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPart"]
+visible = false
+shape = SubResource("CircleShape2D_xxafh")
+
+[node name="ExternalBumper" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_l1mvp")

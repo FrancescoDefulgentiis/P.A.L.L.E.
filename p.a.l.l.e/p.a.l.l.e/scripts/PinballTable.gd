@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var ball_spawn_point: Node2D = $BallSpawnPoint
 @onready var mob001_spawn_point: Node2D = $Mob001SpawnPoint
+@onready var plunger: Node2D = $Plunger
 
 var menu_scene: PackedScene = preload("res://scenes/mainMenu.tscn")
 var menu_instance: Control = null
@@ -16,12 +17,10 @@ func _ready() -> void:
 	enemy_instance.position = mob001_spawn_point.global_position
 	add_child(enemy_instance)
 	print("enemy instantiated")
-	
 	var palla_instance = palla.instantiate()
 	palla_instance.position = ball_spawn_point.global_position
 	add_child(palla_instance)
 	print("palla instantiated")
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("flip_left"):
@@ -36,7 +35,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("ui_cancel"): 
 		toggle_menu()
-
+	
+	if event.is_action_pressed("O-spacebar"): 
+		plunger.pull()
+	elif event.is_action_released("O-spacebar"):
+		plunger.release()
+		
 
 func toggle_menu() -> void:
 	if menu_instance == null:
