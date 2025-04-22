@@ -4,6 +4,7 @@ extends Node2D
 @onready var right_flipper = $FlipperRight
 
 @onready var ball_spawn_point: Node2D = $BallSpawnPoint
+@onready var bumper_spawn_point: Node2D = $BumperSpawnPoint
 @onready var mob001_spawn_point: Node2D = $Mob001SpawnPoint
 @onready var plunger: Node2D = $Plunger
 
@@ -11,16 +12,23 @@ var menu_scene: PackedScene = preload("res://scenes/mainMenu.tscn")
 var menu_instance: Control = null
 var palla: PackedScene = preload("res://scenes/p.a.l.l.a.tscn")
 var mob001: PackedScene = preload("res://scenes/mob001.tscn")
+var bumper: PackedScene = preload("res://scenes/bumper.tscn")
 
 func _ready() -> void:
 	var enemy_instance = mob001.instantiate()
 	enemy_instance.position = mob001_spawn_point.global_position
 	add_child(enemy_instance)
 	print("enemy instantiated")
+	
 	var palla_instance = palla.instantiate()
 	palla_instance.position = ball_spawn_point.global_position
 	add_child(palla_instance)
 	print("palla instantiated")
+	
+	var bumper_instance = bumper.instantiate()
+	bumper_instance.position = bumper_spawn_point.global_position
+	add_child(bumper_instance)
+	print("bumper instantiated")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("flip_left"):

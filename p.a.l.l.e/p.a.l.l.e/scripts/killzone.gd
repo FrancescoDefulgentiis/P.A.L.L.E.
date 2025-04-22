@@ -7,9 +7,12 @@ var ball_scene = preload("res://scenes/p.a.l.l.a.tscn")
 func _on_body_entered(body):
 	print("body entered")
 	if body.is_in_group("ball"):
-		body.queue_free() 
+		# Defer the entire respawn logic
+		call_deferred("_respawn_ball", body)
 
-		# Spawn a new one
-		var new_ball = ball_scene.instantiate() as RigidBody2D
-		new_ball.global_position = respawn_point.global_position
-		get_tree().current_scene.add_child(new_ball)
+func _respawn_ball(body):
+	body.queue_free()
+
+	var new_ball = ball_scene.instantiate() as RigidBody2D
+	new_ball.global_position = respawn_point.global_position
+	get_tree().current_scene.add_child(new_ball)
