@@ -1,0 +1,192 @@
+[gd_scene load_steps=19 format=3 uid="uid://dkk3te7t3s4c"]
+
+[ext_resource type="Texture2D" uid="uid://bhiouw5ct8hoo" path="res://Sprites/leftFlipperWall.png" id="2_exnah"]
+[ext_resource type="Texture2D" uid="uid://ctcny6c4ko3ta" path="res://Sprites/rightFlipperWall.png" id="3_exnah"]
+[ext_resource type="PhysicsMaterial" uid="uid://rbnovaxcnb2n" path="res://Materials/palla.tres" id="3_xpn5j"]
+[ext_resource type="Texture2D" uid="uid://bvf0dr1ipt1lp" path="res://Sprites/pin.png" id="4_wcuyo"]
+[ext_resource type="Texture2D" uid="uid://dswjx6cxp7d42" path="res://Sprites/leftFlipper.png" id="5_8gyw1"]
+[ext_resource type="Texture2D" uid="uid://0wwj1hgy2476" path="res://Sprites/rightFlipper.png" id="6_cd8gh"]
+[ext_resource type="Texture2D" uid="uid://cuvf6j8cscuis" path="res://Sprites/leftPinballWall.png" id="7_0rbot"]
+[ext_resource type="Texture2D" uid="uid://chea1ocn7pwai" path="res://Sprites/LeftHoleWall.png" id="8_jlbxh"]
+[ext_resource type="Texture2D" uid="uid://bdyybehme5r2s" path="res://Sprites/LowertHoleWall.png" id="9_e4q6o"]
+[ext_resource type="Texture2D" uid="uid://b302mwfro51mr" path="res://Sprites/curvedWalls.png" id="9_xpn5j"]
+[ext_resource type="Texture2D" uid="uid://cxej7ocm56tb" path="res://Sprites/GreyBar.png" id="11_06jl2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83fg0"]
+size = Vector2(290, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wcuyo"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlbxh"]
+size = Vector2(7, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4q6o"]
+size = Vector2(7, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpn5j"]
+size = Vector2(7, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06jl2"]
+size = Vector2(43, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhr6q"]
+size = Vector2(43, 7)
+
+[node name="Wall" type="Node2D"]
+
+[node name="BallStopper" type="StaticBody2D" parent="."]
+position = Vector2(108, 153.5)
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+physics_material_override = ExtResource("3_xpn5j")
+
+[node name="GreyBar" type="Sprite2D" parent="BallStopper"]
+texture = ExtResource("11_06jl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallStopper"]
+visible = false
+position = Vector2(-15, 0)
+shape = SubResource("RectangleShape2D_83fg0")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="LeftFlipperWall" type="Sprite2D" parent="LeftWall"]
+position = Vector2(-60, 128)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_exnah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftWall"]
+visible = false
+position = Vector2(-60, 128)
+scale = Vector2(0.1, 0.1)
+polygon = PackedVector2Array(-230, -350, -250, -330, -250, 60, -230, 90, 180, 350, 220, 350, 270, 250, -70, 50, -180, -50, -180, -330, -200, -350)
+
+[node name="RightFlipperWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="RightFlipperWall" type="Sprite2D" parent="RightFlipperWall"]
+position = Vector2(60, 128)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_exnah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightFlipperWall"]
+visible = false
+position = Vector2(60, 128)
+rotation = 3.14159
+scale = Vector2(0.1, -0.1)
+polygon = PackedVector2Array(-230, -350, -250, -330, -250, 60, -230, 90, 180, 350, 220, 350, 270, 250, -70, 50, -180, -50, -180, -330, -200, -350)
+
+[node name="Pin" type="StaticBody2D" parent="."]
+physics_material_override = ExtResource("3_xpn5j")
+
+[node name="Pin" type="Sprite2D" parent="Pin"]
+position = Vector2(1.50463e-36, 166)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_wcuyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pin"]
+visible = false
+position = Vector2(0, 167)
+shape = SubResource("CircleShape2D_wcuyo")
+
+[node name="LeftFlipper" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-30.5, 160.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_8gyw1")
+
+[node name="RightFlipper" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(30.5, 160.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_cd8gh")
+
+[node name="LeftPinballWall" type="StaticBody2D" parent="."]
+position = Vector2(-124.5, -8)
+collision_layer = 4
+
+[node name="LeftPinballWall" type="Sprite2D" parent="LeftPinballWall"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_0rbot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPinballWall"]
+visible = false
+shape = SubResource("RectangleShape2D_jlbxh")
+
+[node name="RightPinballWall" type="StaticBody2D" parent="."]
+position = Vector2(124.5, -8)
+collision_layer = 4
+
+[node name="RightPinballWall" type="Sprite2D" parent="RightPinballWall"]
+scale = Vector2(-0.1, -0.1)
+texture = ExtResource("7_0rbot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPinballWall"]
+visible = false
+shape = SubResource("RectangleShape2D_jlbxh")
+
+[node name="LeftHoleWall" type="StaticBody2D" parent="."]
+position = Vector2(-88.5, 130)
+collision_layer = 4
+
+[node name="LeftHoleWall" type="Sprite2D" parent="LeftHoleWall"]
+scale = Vector2(-0.1, -0.1)
+texture = ExtResource("8_jlbxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHoleWall"]
+visible = false
+shape = SubResource("RectangleShape2D_e4q6o")
+
+[node name="RightHoleWall" type="StaticBody2D" parent="."]
+position = Vector2(88.5, 130)
+scale = Vector2(-1, 1)
+collision_layer = 4
+
+[node name="RightHoleWall" type="Sprite2D" parent="RightHoleWall"]
+scale = Vector2(-0.1, -0.1)
+texture = ExtResource("8_jlbxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHoleWall"]
+visible = false
+shape = SubResource("RectangleShape2D_xpn5j")
+
+[node name="RightLowerHoleWall" type="StaticBody2D" parent="."]
+position = Vector2(106.5, 168.5)
+scale = Vector2(-1, 1)
+collision_layer = 4
+
+[node name="RightLowerHoleWall" type="Sprite2D" parent="RightLowerHoleWall"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_e4q6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLowerHoleWall"]
+visible = false
+shape = SubResource("RectangleShape2D_06jl2")
+
+[node name="RightLowerHoleWall2" type="StaticBody2D" parent="."]
+position = Vector2(-106.5, 168.5)
+scale = Vector2(-1, 1)
+collision_layer = 4
+
+[node name="RightLowerHoleWall" type="Sprite2D" parent="RightLowerHoleWall2"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_e4q6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLowerHoleWall2"]
+visible = false
+shape = SubResource("RectangleShape2D_rhr6q")
+
+[node name="CurvedWalls" type="StaticBody2D" parent="."]
+position = Vector2(105, -165)
+collision_layer = 4
+
+[node name="CurvedWalls" type="Sprite2D" parent="CurvedWalls"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_xpn5j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurvedWalls"]
+visible = false
+scale = Vector2(0.1, 0.1)
+polygon = PackedVector2Array(-230, -230, -230, -161.7, -110.9, -139, -108.5, -139, 1.39999, -78, 100.4, 31.6, 149.7, 141.9, 161.2, 230, 230, 230, 230, -230)
