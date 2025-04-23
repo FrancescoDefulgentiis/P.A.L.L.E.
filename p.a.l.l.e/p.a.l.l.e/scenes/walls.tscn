@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkk3te7t3s4c"]
+[gd_scene load_steps=19 format=3 uid="uid://dkk3te7t3s4c"]
 
 [ext_resource type="Texture2D" uid="uid://bhiouw5ct8hoo" path="res://Sprites/leftFlipperWall.png" id="2_exnah"]
 [ext_resource type="Texture2D" uid="uid://ctcny6c4ko3ta" path="res://Sprites/rightFlipperWall.png" id="3_exnah"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://chea1ocn7pwai" path="res://Sprites/LeftHoleWall.png" id="8_jlbxh"]
 [ext_resource type="Texture2D" uid="uid://bdyybehme5r2s" path="res://Sprites/LowertHoleWall.png" id="9_e4q6o"]
 [ext_resource type="Texture2D" uid="uid://b302mwfro51mr" path="res://Sprites/curvedWalls.png" id="9_xpn5j"]
+[ext_resource type="Texture2D" uid="uid://cxej7ocm56tb" path="res://Sprites/GreyBar.png" id="11_06jl2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83fg0"]
+size = Vector2(290, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wcuyo"]
 radius = 12.0
@@ -30,6 +34,20 @@ size = Vector2(43, 7)
 size = Vector2(43, 7)
 
 [node name="Wall" type="Node2D"]
+
+[node name="BallStopper" type="StaticBody2D" parent="."]
+position = Vector2(108, 153.5)
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+physics_material_override = ExtResource("3_xpn5j")
+
+[node name="GreyBar" type="Sprite2D" parent="BallStopper"]
+texture = ExtResource("11_06jl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallStopper"]
+visible = false
+position = Vector2(-15, 0)
+shape = SubResource("RectangleShape2D_83fg0")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -161,7 +179,7 @@ visible = false
 shape = SubResource("RectangleShape2D_rhr6q")
 
 [node name="CurvedWalls" type="StaticBody2D" parent="."]
-position = Vector2(105, 58)
+position = Vector2(105, -165)
 collision_layer = 4
 
 [node name="CurvedWalls" type="Sprite2D" parent="CurvedWalls"]

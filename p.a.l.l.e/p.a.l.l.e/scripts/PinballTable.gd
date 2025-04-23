@@ -6,29 +6,42 @@ extends Node2D
 @onready var ball_spawn_point: Node2D = $BallSpawnPoint
 @onready var bumper_spawn_point: Node2D = $BumperSpawnPoint
 @onready var mob001_spawn_point: Node2D = $Mob001SpawnPoint
-@onready var plunger: Node2D = $Plunger
+@onready var plunger_spawn_point: Node2D = $PlungerSpawnPoint
 
 var menu_scene: PackedScene = preload("res://scenes/mainMenu.tscn")
 var menu_instance: Control = null
 var palla: PackedScene = preload("res://scenes/p.a.l.l.a.tscn")
+var palla_instance
+
 var mob001: PackedScene = preload("res://scenes/mob001.tscn")
+var enemy_instance
+
 var bumper: PackedScene = preload("res://scenes/bumper.tscn")
+var bumper_instance
+
+var plunger: PackedScene = preload("res://scenes/plunger.tscn")
+var plunger_instance
 
 func _ready() -> void:
-	var enemy_instance = mob001.instantiate()
+	enemy_instance = mob001.instantiate()
 	enemy_instance.position = mob001_spawn_point.global_position
 	add_child(enemy_instance)
 	print("enemy instantiated")
 	
-	var palla_instance = palla.instantiate()
+	palla_instance = palla.instantiate()
 	palla_instance.position = ball_spawn_point.global_position
 	add_child(palla_instance)
 	print("palla instantiated")
 	
-	var bumper_instance = bumper.instantiate()
+	bumper_instance = bumper.instantiate()
 	bumper_instance.position = bumper_spawn_point.global_position
 	add_child(bumper_instance)
 	print("bumper instantiated")
+	
+	plunger_instance = plunger.instantiate()
+	plunger_instance.position = plunger_spawn_point.global_position
+	add_child(plunger_instance)
+	print("plunger instantiated")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("flip_left"):
@@ -45,9 +58,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle_menu()
 	
 	if event.is_action_pressed("O-spacebar"): 
-		plunger.pull()
+		plunger_instance.pull()
 	elif event.is_action_released("O-spacebar"):
-		plunger.release()
+		plunger_instance.release()
 		
 
 func toggle_menu() -> void:
