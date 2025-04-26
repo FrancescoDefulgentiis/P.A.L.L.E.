@@ -166,7 +166,8 @@ visible = false
 shape = SubResource("RectangleShape2D_06jl2")
 
 [node name="RightLowerHoleWall2" type="StaticBody2D" parent="."]
-position = Vector2(-106.5, 168.5)
+position = Vector2(-106.5, 88.5)
+rotation = 0.359538
 scale = Vector2(-1, 1)
 collision_layer = 4
 
@@ -179,7 +180,7 @@ visible = false
 shape = SubResource("RectangleShape2D_rhr6q")
 
 [node name="CurvedWalls" type="StaticBody2D" parent="."]
-position = Vector2(105, -165)
+position = Vector2(108, -147)
 collision_layer = 4
 
 [node name="CurvedWalls" type="Sprite2D" parent="CurvedWalls"]
@@ -189,4 +190,4 @@ texture = ExtResource("9_xpn5j")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurvedWalls"]
 visible = false
 scale = Vector2(0.1, 0.1)
-polygon = PackedVector2Array(-230, -230, -230, -161.7, -110.9, -139, -108.5, -139, 1.39999, -78, 100.4, 31.6, 149.7, 141.9, 161.2, 230, 230, 230, 230, -230)
+polygon = PackedVector2Array(-200, -410, -200, -340, -170, -330, -130, -310, -70, -250, -40, -210, 10, -130, 30, -80, 60, -10, 80, 60, 100, 130, 120, 250, 130, 410, 200, 410, 200, -410)

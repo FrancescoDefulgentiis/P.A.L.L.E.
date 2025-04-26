@@ -4,7 +4,7 @@ extends Node2D
 
 # physical parameters
 var max_pullback: float = 1.0
-var spring_constant: float = 500000.0
+var spring_constant: float = 250000.0
 
 var pull_progress: float = 0.0
 
@@ -31,3 +31,4 @@ func _on_sensor_body_entered(body: Node) -> void:
 
 		# PUSH UP instead of right:
 		rigid_ball.apply_impulse(Vector2.UP * impulse, Vector2.ZERO)
+		pull_progress=0

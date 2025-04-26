@@ -49,11 +49,12 @@ script = ExtResource("1_j537t")
 position = Vector2(95, 55)
 texture = ExtResource("1_otgx2")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-72, -106, -126, -105, -145, -86, -146, 4, -112, 25, 88, 105, 125, 106, 146, 85, 146, 45, 125, 25, -25, -75)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_kstob")
 }
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(95, 55)
+polygon = PackedVector2Array(-126, -105, -145, -86, -145, 4, -135, 15, 84, 105, 125, 105, 145, 85, 145, 45, 125, 25, -64, -105)
