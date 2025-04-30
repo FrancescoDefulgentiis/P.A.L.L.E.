@@ -12,14 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://b302mwfro51mr" path="res://Sprites/curvedWalls.png" id="9_xpn5j"]
 [ext_resource type="Texture2D" uid="uid://cxej7ocm56tb" path="res://Sprites/GreyBar.png" id="11_06jl2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlbxh"]
+size = Vector2(7, 360)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83fg0"]
 size = Vector2(290, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wcuyo"]
 radius = 12.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlbxh"]
-size = Vector2(7, 360)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4q6o"]
 size = Vector2(7, 70)
@@ -34,6 +34,19 @@ size = Vector2(43, 7)
 size = Vector2(43, 7)
 
 [node name="Wall" type="Node2D"]
+
+[node name="LeftPinballWall2" type="StaticBody2D" parent="."]
+position = Vector2(0, -184.5)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="LeftPinballWall" type="Sprite2D" parent="LeftPinballWall2"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_0rbot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPinballWall2"]
+visible = false
+shape = SubResource("RectangleShape2D_jlbxh")
 
 [node name="BallStopper" type="StaticBody2D" parent="."]
 position = Vector2(108, 153.5)
