@@ -7,6 +7,8 @@ extends Node2D
 @onready var bumper_spawn_point: Node2D = $BumperSpawnPoint
 @onready var mob001_spawn_point: Node2D = $Mob001SpawnPoint
 @onready var plunger_spawn_point: Node2D = $PlungerSpawnPoint
+@onready var Shop_area_spawnpoint: Node2D = $ShopAreaSpawnpoint
+
 
 var menu_scene: PackedScene = preload("res://scenes/mainMenu.tscn")
 var menu_instance: Control = null
@@ -21,6 +23,9 @@ var bumper_instance
 
 var plunger: PackedScene = preload("res://scenes/plunger.tscn")
 var plunger_instance
+
+var shop_area: PackedScene = preload("res://scenes/shopArea.tscn")
+var shop_area_instance
 
 func _ready() -> void:
 	enemy_instance = mob001.instantiate()
@@ -42,6 +47,12 @@ func _ready() -> void:
 	plunger_instance.position = plunger_spawn_point.global_position
 	add_child(plunger_instance)
 	print("plunger instantiated")
+
+	shop_area_instance = shop_area.instantiate()
+	shop_area_instance.position = Shop_area_spawnpoint.global_position
+	add_child(shop_area_instance)
+	print("shop area instantiated")
+  
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("flip_left"):

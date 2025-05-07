@@ -24,6 +24,10 @@ window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [input]
 
 flip_left={
@@ -53,6 +57,10 @@ O-spacebar={
 2d_physics/layer_2="flipper"
 2d_physics/layer_3="wall"
 2d_physics/layer_4="enemy"
+
+[physics]
+
+2d/solver/solver_iterations=64
 
 [rendering]
 

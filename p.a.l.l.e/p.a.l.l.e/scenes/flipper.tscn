@@ -48,6 +48,21 @@ script = ExtResource("1_j537t")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(95, 55)
 texture = ExtResource("1_otgx2")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Sprites/originals/RightFlipper.aseprite"
+}
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

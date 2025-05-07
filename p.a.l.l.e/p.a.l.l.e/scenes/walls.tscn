@@ -178,6 +178,19 @@ texture = ExtResource("9_e4q6o")
 visible = false
 shape = SubResource("RectangleShape2D_06jl2")
 
+[node name="launcherWall" type="StaticBody2D" parent="."]
+position = Vector2(107, 87)
+rotation = -0.436332
+collision_layer = 4
+
+[node name="launcherWall" type="Sprite2D" parent="launcherWall"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_e4q6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="launcherWall"]
+visible = false
+shape = SubResource("RectangleShape2D_rhr6q")
+
 [node name="RightLowerHoleWall2" type="StaticBody2D" parent="."]
 position = Vector2(-106.5, 88.5)
 rotation = 0.359538

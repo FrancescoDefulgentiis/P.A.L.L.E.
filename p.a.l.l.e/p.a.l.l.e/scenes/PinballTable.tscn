@@ -43,12 +43,15 @@ position = Vector2(428, 240)
 position = Vector2(354, 238)
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(402, -12)
+position = Vector2(336, 341)
 
 [node name="BumperSpawnPoint" type="Node2D" parent="."]
 position = Vector2(264, 172)
 
 [node name="PlungerSpawnPoint" type="Node2D" parent="."]
 position = Vector2(426.5, 333)
+
+[node name="ShopAreaSpawnpoint" type="Node2D" parent="."]
+position = Vector2(336, 177)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
