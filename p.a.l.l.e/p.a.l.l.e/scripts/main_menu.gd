@@ -14,7 +14,6 @@ func _on_play_button_pressed() -> void:
 	else:
 		push_error("Scene not found: %s" % scene_path)
 
-
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 

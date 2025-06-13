@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://880fj2mh266d"]
 
-[ext_resource type="SpriteFrames" uid="uid://cuoxbeibru6s3" path="res://Sprites/Outputs/RightFlipper.res" id="1_4g5y3"]
+[ext_resource type="SpriteFrames" uid="uid://cuoxbeibru6s3" path="res://assets/Sprites/Outputs/RightFlipper.res" id="1_4g5y3"]
 [ext_resource type="Script" uid="uid://cuhkbjmwiv1ku" path="res://scripts/new_flipper.gd" id="1_4320a"]
 
 [node name="Flipper" type="CharacterBody2D"]

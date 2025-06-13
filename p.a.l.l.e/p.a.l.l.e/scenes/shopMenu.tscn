@@ -7,10 +7,10 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_k4q44")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="screen" type="Panel" parent="."]
 layout_mode = 0
 
-[node name="PlayButton" type="Button" parent="Panel"]
+[node name="Option1" type="Button" parent="screen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "option 1"
 
-[node name="QuitButton" type="Button" parent="Panel"]
+[node name="Option2" type="Button" parent="screen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "option 2"
 
-[node name="OptionsButton" type="Button" parent="Panel"]
+[node name="Option3" type="Button" parent="screen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,6 +55,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "option 3"
 
-[connection signal="pressed" from="Panel/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Panel/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="screen/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="screen/Option2" to="." method="_on_Option2_pressed"]
+[connection signal="pressed" from="screen/Option3" to="." method="_on_Option3_pressed"]

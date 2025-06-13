@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://do21sdv85wbe6"]
 
 [ext_resource type="Script" uid="uid://bwb0n2vcdmkam" path="res://scripts/mob001.gd" id="1_1rnwn"]
-[ext_resource type="Texture2D" uid="uid://dn5q18sodivip" path="res://Sprites/mob001.png" id="2_mmanm"]
+[ext_resource type="Texture2D" uid="uid://dn5q18sodivip" path="res://assets/Sprites/mob001.png" id="2_mmanm"]
 
 [sub_resource type="Animation" id="Animation_4xldh"]
 resource_name = "hit"

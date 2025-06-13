@@ -1,5 +1,7 @@
 extends Node2D
 
+const stats_utils = preload("res://scripts/utils/stats_utils.gd")
+
 @onready var left_flipper = $FlipperLeft
 @onready var right_flipper = $FlipperRight
 
@@ -27,6 +29,7 @@ var plunger_instance
 
 var shop_area: PackedScene = preload("res://scenes/shopArea.tscn")
 var shop_area_instance
+
 
 func _ready() -> void:
 	enemy_instance = mob001.instantiate()
@@ -104,3 +107,6 @@ func toggle_menu() -> void:
 
 		# hide cursor for gameplay
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+	

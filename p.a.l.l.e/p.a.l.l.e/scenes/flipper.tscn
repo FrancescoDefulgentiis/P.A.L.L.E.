@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5y4p7xpi2vwx"]
 
 [ext_resource type="Script" uid="uid://cudjhrjovtloh" path="res://scripts/FlipperLeft.gd" id="1_j537t"]
-[ext_resource type="Texture2D" uid="uid://dswjx6cxp7d42" path="res://Sprites/leftFlipper.png" id="1_otgx2"]
+[ext_resource type="Texture2D" uid="uid://dswjx6cxp7d42" path="res://assets/Sprites/leftFlipper.png" id="1_otgx2"]
 
 [sub_resource type="Animation" id="Animation_j537t"]
 resource_name = "upFlipLeft"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://br0uaes115cw1"]
 
-[ext_resource type="Texture2D" uid="uid://c515mju20d0df" path="res://Sprites/Plunger.png" id="1_cx33g"]
+[ext_resource type="Texture2D" uid="uid://c515mju20d0df" path="res://assets/Sprites/Plunger.png" id="1_cx33g"]
 [ext_resource type="Script" uid="uid://cvg407ruxpmc7" path="res://scripts/plunger.gd" id="1_xs1lu"]
 
 [sub_resource type="Animation" id="Animation_cx33g"]
