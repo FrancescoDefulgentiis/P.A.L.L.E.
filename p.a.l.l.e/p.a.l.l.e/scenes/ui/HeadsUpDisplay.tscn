@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://fqc0sn4uns3j"]
+
+[node name="HeadsUpDisplay" type="Node2D"]
