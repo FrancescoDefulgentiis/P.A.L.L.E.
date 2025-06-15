@@ -15,6 +15,10 @@ run/main_scene="uid://c80tyvdq0ylfr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+UpgradeManager="*res://scenes/system/UpgradeManager.gd"
+
 [display]
 
 window/size/viewport_width=640
