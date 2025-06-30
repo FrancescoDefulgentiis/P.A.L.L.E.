@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dcrvs0df446ow"]
+
+[node name="PinballTable" type="Node2D"]
