@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://Autoloads/SceneManager.gd"
-ScenePaths="*res://Autoloads/ScenePaths.gd"
 Transitions="*res://Autoloads/Transitions.gd"
+ScenePaths="*res://Autoloads/ScenePaths.gd"
 
 [display]
 

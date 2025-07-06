@@ -36,15 +36,17 @@ func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node
 	if load_into == null: load_into = get_tree().root
 	_load_scene_into = load_into
 	_scene_to_unload = scene_to_unload
+	_content_path = scene_to_load
 	
 	_add_loading_screen(transition_type)
 	load_start.emit(_loading_screen)
-		
+	
+	
 	var loader = ResourceLoader.load_threaded_request(scene_to_load)
 	
 	if not ResourceLoader.exists(scene_to_load) or loader == null:
 		_content_invalid.emit(scene_to_load)
-		return 		
+		return
 	
 	_load_progress_timer = Timer.new()
 	_load_progress_timer.wait_time = 0.1
@@ -62,7 +64,7 @@ func _add_loading_screen(transition_type:Transitions.Type=Transitions.Type.FADE_
 func _monitor_load_status() -> void:
 	var load_progress = []
 	var load_status = ResourceLoader.load_threaded_get_status(_content_path, load_progress)
-
+	
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 			_content_invalid.emit(_content_path)
@@ -90,7 +92,7 @@ func _on_content_invalid(path:String) -> void:
 func _on_content_finished_loading(incoming_scene) -> void:
 	var outgoing_scene = _scene_to_unload
 	
-	if outgoing_scene != null:	
+	if outgoing_scene != null:
 		if outgoing_scene.has_method("get_data") and incoming_scene.has_method("receive_data"):
 			incoming_scene.receive_data(outgoing_scene.get_data())
 	

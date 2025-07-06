@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy06fpapockt1"]
+[gd_scene load_steps=5 format=3 uid="uid://dy06fpapockt1"]
 
 [ext_resource type="Script" uid="uid://h7jbasfirr32" path="res://Menus/Start_screen.gd" id="1_cihom"]
+[ext_resource type="Texture2D" uid="uid://bytjoy27pkk2h" path="res://Assets/Sprites/StartScreen.jpg" id="2_3rljx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ng4jn"]
 bg_color = Color(0.592157, 0.27451, 0.584314, 1)
@@ -53,6 +54,7 @@ layer_1/tile_data = PackedInt32Array(458752, 327680, 1, 393216, 65536, 1, 65536,
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(120, 73)
 scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_3rljx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -112,15 +114,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ng4jn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_r03hu")
 text = "QUIT
 "
-
-[node name="VersionNum" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = 3.0
-offset_right = 63.0
-offset_bottom = 11.0
-theme_override_font_sizes/font_size = 5
-text = "version"
 
 [connection signal="button_up" from="VBoxContainer/PlayHBoxContainer/PlayContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/SettingsHBoxContainer/SettingsContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
