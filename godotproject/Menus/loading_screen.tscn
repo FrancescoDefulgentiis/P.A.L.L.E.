@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://d13yggkw2yru4"]
 
-[ext_resource type="Script" uid="uid://dmujs3gekj6ih" path="res://Menus/loading_screen.gd" id="1_k5r6i"]
+[ext_resource type="Script" uid="uid://dmujs3gekj6ih" path="res://Menus/Loading_screen.gd" id="1_6as7q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awhaq"]
 bg_color = Color(1, 1, 1, 1)
@@ -534,7 +534,7 @@ _data = {
 }
 
 [node name="LoadingScreen" type="Node2D"]
-script = ExtResource("1_k5r6i")
+script = ExtResource("1_6as7q")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

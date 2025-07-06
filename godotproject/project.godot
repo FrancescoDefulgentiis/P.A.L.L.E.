@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SceneManager="*res://Autoloads/sceneManager.gd"
-ScenePaths="*res://Autoloads/ScenePaths.gd"
+SceneManager="*res://Autoloads/SceneManager.gd"
 Transitions="*res://Autoloads/Transitions.gd"
+ScenePaths="*res://Autoloads/ScenePaths.gd"
 
 [display]
 
