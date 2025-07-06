@@ -2,12 +2,11 @@ extends Node
 
 # Dictionary containing scene keys mapped to their paths
 var scene_paths: Dictionary = {
-	"start_screen": "res://Menus/start_screen.tscn",
-	"loading_screen":"res://Menus/loading_screen.tscn",
-	"test_level": "res://scenes/levels/test_evel.tscn",
-#	"game_over": "res://scenes/ui/GameOver.tscn",
-#	"credits": "res://scenes/ui/Credits.tscn",
-#	"settings": "res://scenes/ui/Settings.tscn"
+	"Start_screen": "res://Menus/Start_screen.tscn",
+	"Loading_screen":"res://Menus/Loading_screen.tscn",
+	"Settings": "res://Menus/Start_screen.tscn",
+	"Level_selection_screen":"res://Menus/Level_selection_screen.tscn",
+	"Test_level": "res://scenes/levels/Test_evel.tscn"
 }
 
 func get_scene_path(scene_identifier: String) -> String:

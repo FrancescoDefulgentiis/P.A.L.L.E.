@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy06fpapockt1"]
 
-[ext_resource type="Script" uid="uid://h7jbasfirr32" path="res://Menus/start_screen.gd" id="1_2dyvv"]
+[ext_resource type="Script" uid="uid://h7jbasfirr32" path="res://Menus/Start_screen.gd" id="1_cihom"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ng4jn"]
 bg_color = Color(0.592157, 0.27451, 0.584314, 1)
@@ -41,7 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2dyvv")
+script = ExtResource("1_cihom")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -63,22 +63,55 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="PlayHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-alignment = 2
+alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="PlayContainer" type="MarginContainer" parent="VBoxContainer/PlayHBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_right = 72
-theme_override_constants/margin_bottom = 14
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="PlayButton" type="Button" parent="VBoxContainer/PlayHBoxContainer/PlayContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 9
+theme_override_styles/hover = SubResource("StyleBoxFlat_ng4jn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r03hu")
+text = "PLAY
+"
+
+[node name="SettingsHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SettingsContainer" type="MarginContainer" parent="VBoxContainer/SettingsHBoxContainer"]
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/SettingsHBoxContainer/SettingsContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 9
 theme_override_styles/hover = SubResource("StyleBoxFlat_ng4jn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_r03hu")
-text = "ENTER"
+text = "SETTINGS
+"
+
+[node name="QuitHBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitContainer" type="MarginContainer" parent="VBoxContainer/QuitHBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/QuitHBoxContainer2/QuitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/hover = SubResource("StyleBoxFlat_ng4jn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r03hu")
+text = "QUIT
+"
 
 [node name="VersionNum" type="Label" parent="."]
 unique_name_in_owner = true
@@ -89,4 +122,6 @@ offset_bottom = 11.0
 theme_override_font_sizes/font_size = 5
 text = "version"
 
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/MarginContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/PlayHBoxContainer/PlayContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/SettingsHBoxContainer/SettingsContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitHBoxContainer2/QuitContainer/QuitButton" to="." method="_on_quit_button_button_up"]
