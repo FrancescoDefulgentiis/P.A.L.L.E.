@@ -14,6 +14,4 @@ func _on_settings_button_button_up() -> void:
 
 func _on_play_button_button_up() -> void:
 	print("Starting game")
-	# When i'll make a level selector i'll use this =)
-	#SceneManager.swap_scenes(ScenePaths.get_scene_path(ScenePaths.Scene.LEVEL_SELECTION_SCREEN), get_tree().root, self, Transitions.Type.WIPE_TO_RIGHT)
-	SceneManager.swap_scenes(ScenePaths.get_scene_path(ScenePaths.Scene.TEST_LEVEL), get_tree().root, self, Transitions.Type.WIPE_TO_RIGHT)
+	SceneManager.swap_scenes(ScenePaths.get_scene_path(ScenePaths.Scene.CHARACTER_SELECTION_SCREEN), get_tree().root, self, Transitions.Type.WIPE_TO_RIGHT)

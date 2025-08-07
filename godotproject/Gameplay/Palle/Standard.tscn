@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://wjj673lji5mj"]
+
+[ext_resource type="Texture2D" uid="uid://dxmgk8kc8iabm" path="res://Assets/Sprites/standard.svg" id="1_1cgnn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfds3"]
+radius = 7.0
+
+[node name="Palla" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pfds3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.98378e-07, -2.38419e-07)
+scale = Vector2(0.036, 0.036)
+texture = ExtResource("1_1cgnn")

@@ -32,33 +32,33 @@ const STRING_TO_ENUM = {
 
 const DEFAULT = Type.FADE_TO_BLACK
 
-static func get_all_names() -> Array[String]:
+func get_all_names() -> Array[String]:
 	return NAMES.values()
 
-static func get_all_types() -> Array[Type]:
+func get_all_types() -> Array[Type]:
 	var types: Array[Type] = []
 	for type in Type.values():
 		types.append(type)
 	return types
 
-static func is_valid_name(transition_name: String) -> bool:
+func is_valid_name(transition_name: String) -> bool:
 	return transition_name in STRING_TO_ENUM
 
-static func is_valid_type(transition_type: Type) -> bool:
+func is_valid_type(transition_type: Type) -> bool:
 	return transition_type in NAMES
 
-static func from_string(transition_name: String) -> Type:
+func from_string(transition_name: String) -> Type:
 	return STRING_TO_ENUM.get(transition_name, DEFAULT)
 
-static func get_String_from_type(transition_type: Type) -> String:
+func get_String_from_type(transition_type: Type) -> String:
 	return NAMES.get(transition_type, NAMES[DEFAULT])
 
-static func get_random() -> Type:
+func get_random() -> Type:
 	var types = get_all_types()
 	types.erase(Type.NO_TRANSITION)
 	return types[randi() % types.size()]
 
-static func invert_transition(transition_type: Type) -> Type:
+func invert_transition(transition_type: Type) -> Type:
 	match transition_type:
 		Type.FADE_TO_BLACK:
 			return Type.FADE_FROM_BLACK
@@ -71,5 +71,5 @@ static func invert_transition(transition_type: Type) -> Type:
 		_:
 			return transition_type
 
-static func get_random_name() -> String:
+func get_random_name() -> String:
 	return get_String_from_type(get_random())

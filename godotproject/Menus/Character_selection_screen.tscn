@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcdme67dw2slp"]
+
+[ext_resource type="Script" uid="uid://bebfmv1tmvi82" path="res://Menus/Character_selection_screen.gd" id="1_0tpqc"]
+
+[node name="LevelSelectionScreen" type="Node2D"]
+script = ExtResource("1_0tpqc")

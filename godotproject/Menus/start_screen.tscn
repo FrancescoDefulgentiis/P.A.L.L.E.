@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy06fpapockt1"]
+[gd_scene load_steps=5 format=3 uid="uid://b1ahurk5aja3h"]
 
 [ext_resource type="Script" uid="uid://h7jbasfirr32" path="res://Menus/Start_screen.gd" id="1_cihom"]
 [ext_resource type="Texture2D" uid="uid://bytjoy27pkk2h" path="res://Assets/Sprites/StartScreen.jpg" id="2_3rljx"]
@@ -52,8 +52,8 @@ layer_1/name = "Decoration"
 layer_1/tile_data = PackedInt32Array(458752, 327680, 1, 393216, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 65550, 196608, 1, 131086, 196608, 1, 196622, 196608, 1, 262158, 196608, 1, 327694, 196608, 1, 393230, 196608, 1, 458766, 262144, 1, 0, 65536, 0, 14, 196608, 0, 1, 131072, 0, 2, 131072, 0, 3, 131072, 0, 4, 131072, 0, 5, 131072, 0, 6, 131072, 0, 7, 131072, 0, 8, 131072, 0, 9, 131072, 0, 10, 131072, 0, 11, 131072, 0, 12, 131072, 0, 13, 131072, 0, 65537, 262144, 3, 65538, 262144, 2, 65539, 262144, 3, 65540, 327680, 2, 65541, 589824, 3, 65545, 262144, 3, 65546, 262144, 2, 65547, 262144, 3, 65548, 262144, 3, 65549, 262144, 3, 65542, 327680, 2, 65544, 262144, 3, 65543, 262144, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(120, 73)
-scale = Vector2(0.25, 0.25)
+position = Vector2(48, 54)
+scale = Vector2(0.394167, 0.288492)
 texture = ExtResource("2_3rljx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
