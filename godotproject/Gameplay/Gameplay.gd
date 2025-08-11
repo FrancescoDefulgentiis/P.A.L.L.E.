@@ -117,8 +117,8 @@ func place_flippers(flipper_type: FlipperManager.FlipperType):
 	if flipper_scene_path:
 		var flipper_scene = load(flipper_scene_path)
 		if flipper_scene:
-			setup_flipper(flipper_scene, FlipperManager.FlipperPosition.BOTTOM_LEFT, true)
-			setup_flipper(flipper_scene, FlipperManager.FlipperPosition.BOTTOM_RIGHT, false)
+			place_flipper(flipper_scene, FlipperManager.FlipperPosition.BOTTOM_LEFT, true)
+			place_flipper(flipper_scene, FlipperManager.FlipperPosition.BOTTOM_RIGHT, false)
 			print("	Flippers loaded for type: ", FlipperManager.get_flipper_name(flipper_type))
 		else:
 			print("	Failed to load flipper scene at path: ", flipper_scene_path)
@@ -152,29 +152,44 @@ func create_ball_at(ball_type: PalleManager.BallType, spawn_position: Vector2 = 
 		print("	No valid ball scene found for type: ", ball_type)
 	return null
 
-func setup_flipper(flipper_scene: PackedScene, positioning: FlipperManager.FlipperPosition, is_left: bool):
-	var flipper = flipper_scene.instantiate()
-	var coordinates = FlipperManager.Flipper_positions.get(positioning, Vector2.ZERO)
-	print("flipper coordinates are: ", coordinates)
-	flipper.position = coordinates
-	flipper.is_left_flipper = is_left
+func place_flipper(flipper_scene: PackedScene, positioning: FlipperManager.FlipperPosition, is_left: bool):
+	create_flipper_at(flipper_scene, positioning, is_left)
+
+func create_flipper_at(flipper_scene: PackedScene, positioning: FlipperManager.FlipperPosition, is_left: bool):
+	var flipper_instance = flipper_scene.instantiate()
+	
+	var flipper_pos = FlipperManager.get_flipper_position(positioning)
+	flipper_instance.position = flipper_pos
+	if is_left:
+		print("### Placing Left Flipper at ", flipper_instance.position)
+	else:
+		print("### Placing Right Flipper at ", flipper_instance.position)
+	flipper_layer.add_child(flipper_instance)
+	
+	var pin_joint = PinJoint2D.new()
+	pin_joint.position = flipper_pos + 2
+	flipper_layer.add_child(pin_joint)
+	
+	var wallbox_node = null
+	for child in wall_layer.get_children():
+		if child.name == "BoxWall":
+			wallbox_node = child
+			break
+
+	if wallbox_node:
+		call_deferred("_setup_flipper_joint", pin_joint, flipper_instance, wallbox_node)
+	else:
+		push_warning("WallBox node not found for pin_joint.node_b; flipper will not be anchored.")
 
 	if is_left:
-		flipper.name = "LeftFlipper"
-		left_flipper = flipper
+		left_flipper = flipper_instance
 	else:
-		flipper.name = "RightFlipper"
-		right_flipper = flipper
+		right_flipper = flipper_instance
 
-	flipper_layer.add_child(flipper)
-
-	var pin_joint: PinJoint2D = flipper.get_node_or_null("PinJoint2D")
-	print(flipper.get_path())
-	if pin_joint:
-		pin_joint.node_a = flipper.get_path()
-		pin_joint.position = Vector2.ZERO
-	else:
-		push_warning("PinJoint2D not found in flipper scene")
+func _setup_flipper_joint(pin_joint: PinJoint2D, flipper_instance: Node, wallbox_node: Node):
+	# This runs after nodes are in the tree
+	pin_joint.node_a = flipper_instance.get_path()
+	pin_joint.node_b = wallbox_node.get_path()
 
 func clear_table():
 	for child in obstacle_layer.get_children():
