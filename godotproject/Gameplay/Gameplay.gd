@@ -167,7 +167,7 @@ func create_flipper_at(flipper_scene: PackedScene, positioning: FlipperManager.F
 	flipper_layer.add_child(flipper_instance)
 	
 	var pin_joint = PinJoint2D.new()
-	pin_joint.position = flipper_pos + 2
+	pin_joint.position = flipper_pos + Vector2(200, 200)
 	flipper_layer.add_child(pin_joint)
 	
 	var wallbox_node = null
