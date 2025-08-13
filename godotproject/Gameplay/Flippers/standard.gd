@@ -2,7 +2,7 @@ extends RigidBody2D
 class_name Flipper
 
 @export var is_left_flipper: bool = true
-@export var rest_angle: float = 0.0
+@export var rest_angle: float = -30.0
 @export var active_angle: float = 45.0
 @export var flip_speed: float = 0.1
 @export var return_speed: float = 0.15
@@ -48,7 +48,7 @@ func _physics_process(_delta):
 	elif angular_velocity < -max_angular_velocity:
 		angular_velocity = -max_angular_velocity
 
-func activate_flipper():
+func activate_flipper(is_left_flipper: bool):
 	"""Activate the flipper (move to active position)"""
 	if is_flipping:
 		return
@@ -68,7 +68,7 @@ func activate_flipper():
 	# Emit signal
 	flipper_activated.emit()
 
-func deactivate_flipper():
+func deactivate_flipper(is_left_flipper: bool):
 	"""Deactivate the flipper (return to rest position)"""
 	if not is_flipping:
 		return
@@ -100,9 +100,9 @@ func animate_to_angle(target_angle: float, duration: float):
 func handle_input(is_active: bool):
 	"""Handle input from the gameplay scene"""
 	if is_active:
-		activate_flipper()
+		activate_flipper(is_left_flipper)
 	else:
-		deactivate_flipper()
+		deactivate_flipper(is_left_flipper)
 
 func _on_body_entered(body):
 	"""Handle collision with other bodies (like the ball)"""

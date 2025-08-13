@@ -160,14 +160,11 @@ func create_flipper_at(flipper_scene: PackedScene, positioning: FlipperManager.F
 	
 	var flipper_pos = FlipperManager.get_flipper_position(positioning)
 	flipper_instance.position = flipper_pos
-	if is_left:
-		print("### Placing Left Flipper at ", flipper_instance.position)
-	else:
-		print("### Placing Right Flipper at ", flipper_instance.position)
+	
 	flipper_layer.add_child(flipper_instance)
 	
 	var pin_joint = PinJoint2D.new()
-	pin_joint.position = flipper_pos + Vector2(200, 200)
+	pin_joint.position = Vector2(100, 100)
 	flipper_layer.add_child(pin_joint)
 	
 	var wallbox_node = null
@@ -183,8 +180,12 @@ func create_flipper_at(flipper_scene: PackedScene, positioning: FlipperManager.F
 
 	if is_left:
 		left_flipper = flipper_instance
+		print("### Placing Left Flipper at ", flipper_instance.position)
+		left_flipper.is_left_flipper = true
 	else:
 		right_flipper = flipper_instance
+		print("### Placing Right Flipper at ", flipper_instance.position)
+		left_flipper.is_left_flipper = false
 
 func _setup_flipper_joint(pin_joint: PinJoint2D, flipper_instance: Node, wallbox_node: Node):
 	# This runs after nodes are in the tree

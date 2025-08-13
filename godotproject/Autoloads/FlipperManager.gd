@@ -18,8 +18,8 @@ enum FlipperPosition {
 }
 
 var Flipper_positions = {
-	FlipperPosition.BOTTOM_LEFT: Vector2((BackgroundManager.table_width/4)*2, (BackgroundManager.table_height/3)*2),
-	FlipperPosition.BOTTOM_RIGHT: Vector2((BackgroundManager.table_width/4)*3, (BackgroundManager.table_height/3)*2)
+	FlipperPosition.BOTTOM_LEFT: Vector2((BackgroundManager.table_width/6)*2, ((BackgroundManager.table_height/5)*4)),
+	FlipperPosition.BOTTOM_RIGHT: Vector2((BackgroundManager.table_width/6)*4, ((BackgroundManager.table_height/5)*4))
 }
 
 func get_flipper_scene_path(flipper_type: FlipperType) -> String:
