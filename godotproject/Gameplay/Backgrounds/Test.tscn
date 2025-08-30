@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6pqql4ckpned"]
-
-[ext_resource type="Texture2D" uid="uid://dkftu1mnwcokn" path="res://Assets/Sprites/background-export.png" id="1_76l2g"]
-
-[node name="Test" type="Sprite2D"]
-position = Vector2(120, 72)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_76l2g")
